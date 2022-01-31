@@ -1,0 +1,26 @@
+<%- include('./partials/csslink.ejs') %>
+    <title>Edit | crud operation</title>
+    <div class="container">
+        <form method="post" action="/edit/<%= items._id %>/update">
+            <div class="alert alert-primary text-center" role="alert">
+                <h5> Edit User Data</h5>
+            </div>
+            <div class="mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="Name" name="name" placeholder="Enter Name"
+                    value="<%= items.name %>">
+            </div>
+            <div class="mb-3 ">
+                <label for="Age" class="form-label">Age</label>
+                <input type="text" class="form-control" id="Age" name="age" placeholder="Age" value="<%= items.age %>">
+            </div>
+            <div class="mb-3 ">
+                <label for="contact" class="form-label">Contact</label>
+                <input type="text" class="form-control" name="contact" id="contact" placeholder="Mobile No."
+                    value="<%= items.contact %>">
+            </div>
+            <button type="submit" class="btn btn-danger">Update</button>
+            <button type="submit" class="btn btn-primary"><a href="/" class=" text-white"
+                    style="text-decoration: none;">Back to home</a></button>
+        </form>
+    </div>

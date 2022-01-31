@@ -1,0 +1,12 @@
+.header {
+  height: 40px;
+  width: 100%;
+  background-color: rgb(10, 180, 223);
+}
+.footer {
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  background-color: rgb(5, 6, 7);
+  bottom: 0px;
+}

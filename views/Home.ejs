@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./partials/csslink.ejs') %>
+        <title>Home | crud operation</title>
+</head>
+
+<body>
+    <%- include('./partials/header.ejs') %>
+        <section class="container d-flex justify-content-between">
+            <section class="col-sm-5  border p-3">
+                <form method="post" action="/posts">
+                    <div class="alert alert-primary text-center" role="alert">
+                        <h5> Add New User</h5>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Name" class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" id="Name" placeholder="Enter Name">
+                    </div>
+
+                    <div class="mb-3 ">
+                        <label for="Age" class="form-label">Age</label>
+                        <input type="text" name="age" class="form-control" id="Age" placeholder="Age">
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="contact" class="form-label">Contact</label>
+                        <input type="text" name="contact" class="form-control" id="contact" placeholder="Mobile No.">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add User</button>
+                </form>
+            </section>
+
+            <section class="col-sm-6  border p-3">
+                <table class="table  table-hover" method="post">
+                    <div class="alert alert-info text-center" role="alert">
+                        <h5> List of Users</h5>
+                    </div>
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data && data.map((items,idx)=>{ %>
+                            <tr>
+                                <th scope="row">
+                                    <%= idx+1 %>
+                                </th>
+                                <td>
+                                    <%= items.name %>
+                                </td>
+                                <td>
+                                    <%= items.age %>
+                                </td>
+                                <td>
+                                    <%= items.contact %>
+                                </td>
+                                <td class="d-flex justify-content-between">
+                                    <form method="get" action="/edit/<%= items._id %>">
+                                        <button class="btn-info"><small>Update</small></button>
+                                    </form>
+                                    <form action="/delete/<%= items._id %>">
+                                        <button class="btn-danger"><small>Remove</small></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }) %>
+
+
+                    </tbody>
+                </table>
+            </section>
+
+        </section>
+        <%- include('./partials/footer.ejs') %>
+
+</body>
+
+</html>

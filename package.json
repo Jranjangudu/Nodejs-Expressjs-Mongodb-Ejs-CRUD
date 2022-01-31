@@ -1,0 +1,19 @@
+{
+  "name": "crud-nodejs",
+  "version": "1.0.0",
+  "description": "creating a crud operation webapp using node , express , mongodb and ejs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start":"node index.js",
+    "dev":"nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Devops-gudu",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.8"
+  }
+}
